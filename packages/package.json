@@ -1,0 +1,19 @@
+{
+  "name": "@request/axios",
+  "version": "1.0.0",
+  "description": "基于 axios 二次封装的 HTTP 库, 全面支持按需引入",
+  "main": "./index.js",
+  "dependencies": {
+    "axios": "^0.27.1"
+  },
+  "devDependencies": {},
+  "repository": "https://github.com/gouqingping/request",
+  "scripts": {},
+  "keywords": [],
+  "author": {
+    "name": "Gos",
+    "email": "gouqingping@yahoo.com"
+  },
+  "license": "ISC",
+  "types": "./index.d.ts"
+}
