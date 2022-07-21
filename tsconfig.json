@@ -1,23 +1,24 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "declaration": true,
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"strict": true,
+		"declaration": true,
 		"removeComments": true,
-    // "allowJs": true,
-    // "useDefineForClassFields": true,
-    "jsx": "preserve",
-    "sourceMap": false,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    // "isolatedModules": false,
-    "lib": ["esnext", "dom"],
-    "baseUrl": "./lib",
-		"types": [ "node"],
+		// "allowJs": true,
+		// "useDefineForClassFields": true,
+		"jsx": "preserve",
+		"sourceMap": false,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"isolatedModules": false,
+		"lib": ["esnext", "dom"],
+		"baseUrl": "./",
+		// "types": [ "node"],
 		"paths": {},
-  },
-  "include": ["packages"],
-	"exclude": ["node_modules","dist","src"]
+		"outDir": "lib"
+	},
+	"include": ["packages"],
+	"exclude": ["node_modules", "dist", "src"]
 }

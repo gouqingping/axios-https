@@ -6,7 +6,7 @@
  * @LastEditors  : Pat
  * @LastEditTime : 2022-04-28 16:39:34
  */
-import request, { get, useRequest, useResponse, useConfig, formData, post } from "../packages/index";
+import request, { get, useRequest, useResponse, useConfig, formData, post } from "../lib/index";
 
 window.onload = () => {
     useConfig('timeout', 500)

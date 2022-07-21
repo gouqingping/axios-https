@@ -1,6 +1,6 @@
 {
   "name": "request",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "基于 axios 二次封装的 HTTP 库, 全面支持按需引入",
   "main": "index.js",
   "dependencies": {
@@ -31,9 +31,7 @@
   },
   "scripts": {
     "dev": "cross-env webpack serve --inline --progress --config build/dev.js --hot",
-    "package": "rollup -c build/rollup.js",
-    "package:tsc": "rollup -c build/rollup.tsc.js",
-    "build:pro": "npm run package && npm run package:tsc && npm run publish",
+    "build:pro": "tsc && npm run publish",
     "publish": "node build/publish.js"
   },
   "keywords": [],
