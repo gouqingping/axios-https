@@ -1,0 +1,19 @@
+{
+  "name": "axios-https",
+  "version": "1.0.3",
+  "description": "axios 二次封装的 HTTP 库, 全面支持按需引入",
+  "main": "./index.js",
+  "dependencies": {
+    "axios": "^0.26.1"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "keywords": [],
+  "author": {
+    "name": "Gos",
+    "email": "gouqingping@yahoo.com"
+  },
+  "license": "ISC",
+  "types": "./index.d.ts",
+  "style": ""
+}

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import type { AxiosInstance, AxiosRequestConfig } from 'axios'
+import type { AxiosInstance } from 'axios'
 import type {
     RequestConfig,
     RequestInterceptors,
@@ -10,7 +10,7 @@ class Request {
     // axios 实例
     instance: AxiosInstance
     // 拦截器对象
-    interceptorsObj?: RequestInterceptors<AxiosResponse>
+    interceptorsObj?: any
     /*
     存放取消方法的集合
     * 在创建请求后将取消请求方法 push 到该集合中
@@ -32,10 +32,7 @@ class Request {
         this.instance = axios.create(config)
         this.interceptorsObj = config.interceptors
         // 拦截器执行顺序 接口请求 -> 实例请求 -> 全局请求 -> 实例响应 -> 全局响应 -> 接口响应
-        this.instance.interceptors.request.use(
-            (res: AxiosRequestConfig) => res,
-            (err: any) => err,
-        )
+        this.instance.interceptors.request.use((res: any) => res, (err: any) => err)
 
         // 使用实例拦截器
         this.instance.interceptors.request.use(
@@ -46,14 +43,9 @@ class Request {
             this.interceptorsObj?.responseInterceptors,
             this.interceptorsObj?.responseInterceptorsCatch,
         )
-                        
+
         // 全局响应拦截器保证最后执行
-        this.instance.interceptors.response.use(
-            (res: AxiosResponse) => {
-                return res
-            },
-            (err: any) => err,
-        )
+        this.instance.interceptors.response.use((res: AxiosResponse) => res, (err: any) => err)
     }
     /**
      * @description: 获取指定 url 在 cancelRequestSourceList 中的索引
@@ -77,7 +69,7 @@ class Request {
         // 删除url和cancel方法
         urlIndex !== -1 && this.requestUrlList?.splice(urlIndex as number, 1)
         sourceIndex !== -1 &&
-        this.cancelRequestSourceList?.splice(sourceIndex as number, 1)
+            this.cancelRequestSourceList?.splice(sourceIndex as number, 1)
     }
     request<T>(config: RequestConfig<T>): Promise<T> {
         return new Promise((resolve, reject) => {
@@ -97,10 +89,10 @@ class Request {
             };
             this.instance.request<any, T>(config).then(res => {
                 if (config.interceptors?.responseInterceptors) {
-                        res = config.interceptors.responseInterceptors(res)
-                    }
-                    resolve(res)
-                })
+                    res = config.interceptors.responseInterceptors(res)
+                }
+                resolve(res)
+            })
                 .catch((err: any) => reject(err))
                 .finally(() => url && this.delUrl(url))
         })

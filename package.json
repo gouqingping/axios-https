@@ -1,10 +1,10 @@
 {
-  "name": "request",
-  "version": "1.0.0",
+  "name": "axios-https",
+  "version": "1.0.3",
   "description": "基于 axios 二次封装的 HTTP 库, 全面支持按需引入",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.26.1"
+    "axios": "^1.6.7"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
